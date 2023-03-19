@@ -20,7 +20,7 @@ public class BeerController {
     public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto) {
         var location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{beerId}")
-                .buildAndExpand(1L)
+                .buildAndExpand(beerDto.getId())
                 .toUri();
         return ResponseEntity.created(location).build();
     }
