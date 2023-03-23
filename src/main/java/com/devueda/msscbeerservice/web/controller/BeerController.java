@@ -2,6 +2,7 @@ package com.devueda.msscbeerservice.web.controller;
 
 import com.devueda.msscbeerservice.web.model.BeerDto;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -13,11 +14,13 @@ public class BeerController {
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId) {
-        return ResponseEntity.ok(BeerDto.builder().build());
+        return ResponseEntity.ok(BeerDto.builder()
+                        .beerName("Bhrama")
+                .build());
     }
 
     @PostMapping
-    public ResponseEntity saveNewBeer(@RequestBody BeerDto beerDto) {
+    public ResponseEntity saveNewBeer(@Validated @RequestBody BeerDto beerDto) {
         var location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{beerId}")
                 .buildAndExpand(beerDto.getId())
@@ -26,7 +29,7 @@ public class BeerController {
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateByBeerId(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto) {
+    public ResponseEntity updateByBeerId(@PathVariable("beerId") UUID beerId, @Validated @RequestBody BeerDto beerDto) {
         return ResponseEntity.noContent().build();
     }
 
