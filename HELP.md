@@ -1,4 +1,6 @@
-# Getting Started
+# Getting Started 
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/caueda/mssc-beer-service/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/caueda/mssc-beer-service/tree/main)
 
 ### Reference Documentation
 For further reference, please consider the following sections:
