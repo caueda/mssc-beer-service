@@ -1,5 +1,6 @@
 package com.devueda.msscbeerservice.web.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Positive;
@@ -30,7 +31,12 @@ public class BeerDto {
     private String beerName;
     private BeerStyleEnum beerStyleEnum;
     @Positive
+    @NotNull
     private Long upc;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @Positive
+    @NotNull
     private BigDecimal price;
     private Integer quantityOnHand;
 }
