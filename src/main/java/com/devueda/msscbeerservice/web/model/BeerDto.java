@@ -30,9 +30,8 @@ public class BeerDto {
     @Size(min = 5, max = 100)
     private String beerName;
     private BeerStyleEnum beerStyleEnum;
-    @Positive
     @NotNull
-    private Long upc;
+    private String upc;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     @Positive

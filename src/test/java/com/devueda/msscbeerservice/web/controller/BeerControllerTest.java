@@ -25,15 +25,14 @@ class BeerControllerTest {
     private static final String mockBeerId = "86c41d00-7bd7-4301-a9ec-00151a4b5351";
     @Autowired
     MockMvc mockMvc;
-
+    @Autowired
+    ObjectMapper objectMapper;
     @MockBean
     BeerService beerService;
 
-    ObjectMapper objectMapper;
 
     @BeforeEach
     void setUp() {
-        this.objectMapper = new ObjectMapper();
     }
 
     @Test
@@ -73,7 +72,7 @@ class BeerControllerTest {
     BeerDto getValidBeerDto() {
         return BeerDto.builder()
                 .beerName("Stella")
-                .upc(10000L)
+                .upc("0631234200036")
                 .quantityOnHand(10)
                 .beerStyleEnum(BeerStyleEnum.ALE)
                 .price(BigDecimal.valueOf(12.99))
